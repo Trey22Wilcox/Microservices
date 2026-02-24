@@ -1,13 +1,21 @@
 package org.treywilcox.microservices.Health;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/health")
-public class Health {
+public class HealthController {
 
-    private final HealthStatus healthStatus;
+    private final HealthService healthService;
 
-    public 
+    public HealthController(HealthService healthService) {
+        this.healthService = healthService;
+    }
+
+    @GetMapping
+    public HealthStatus health() {
+        return healthService.getHStatus();
+    }
 }

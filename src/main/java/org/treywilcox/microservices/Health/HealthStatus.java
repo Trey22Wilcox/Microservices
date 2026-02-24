@@ -1,4 +1,4 @@
-package Health;
+package org.treywilcox.microservices.Health;
 
 public class HealthStatus {
 
